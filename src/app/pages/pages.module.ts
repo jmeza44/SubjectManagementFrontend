@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubjectModule } from 'src/app/components/subject/subject.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 
@@ -8,7 +8,7 @@ import { SubjectModule } from 'src/app/components/subject/subject.module';
   declarations: [],
   imports: [
     CommonModule,
-    SubjectModule
+    DashboardModule
   ]
 })
-export class DashboardModule { }
+export class PagesModule { }
