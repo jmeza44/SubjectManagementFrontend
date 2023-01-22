@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubjectCardComponent } from './subject-card/subject-card.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -9,7 +10,8 @@ import { SubjectCardComponent } from './subject-card/subject-card.component';
     SubjectCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatExpansionModule
   ],
   exports: [
     SubjectCardComponent

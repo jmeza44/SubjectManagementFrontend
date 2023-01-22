@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./subject-card.component.scss']
 })
 export class SubjectCardComponent {
-
+  panelOpenState = false;
 }
