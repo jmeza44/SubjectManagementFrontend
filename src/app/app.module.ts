@@ -16,6 +16,7 @@ import { PagesModule } from './pages/pages.module';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     PagesModule
   ],
   bootstrap: [AppComponent]

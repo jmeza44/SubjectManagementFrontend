@@ -3,17 +3,17 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../models/api-response.model';
-import { Subject } from '../models/subject.model';
+import { Teacher } from '../models/teacher.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SubjectService {
+export class TeacherService {
   private baseUrl = environment.apiBaseUrl;
   constructor(private httpClient: HttpClient) { }
 
-  getSubjects(): Observable<ApiResponse<Subject[]>> {
-    return this.httpClient.get<ApiResponse<Subject[]>>(`${this.baseUrl}/Subject` )
+  getTeacher(id: number): Observable<ApiResponse<Teacher>> {
+    return this.httpClient.get<ApiResponse<Teacher>>(`${this.baseUrl}/Teacher/${id}` )
       .pipe(catchError(err => { throw err }));
   }
 }

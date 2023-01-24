@@ -1,4 +1,13 @@
-.subjects-container {
-  max-width: 320px;
-  margin: 10px;
+.dashboard-container {
+  margin: 12px;
+  .dashboard-element {
+    width: 100%;
+    height: 100%;
+    margin: 6px;
+    background-color: antiquewhite;
+  }
+}
+
+.subject-card-container {
+  padding: 12px;
 }
