@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let subject of subjects">
+  <mat-expansion-panel *ngFor="let subject of subjects | async">
     <mat-expansion-panel-header>
       <mat-panel-title> {{ subject.name }} </mat-panel-title>
     </mat-expansion-panel-header>

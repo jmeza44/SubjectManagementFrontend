@@ -12,13 +12,9 @@ import { TeacherService } from 'src/app/common/services/teacher.service';
 })
 export class SubjectCardComponent implements OnInit {
 
-  subjects: Subject[] = [];
-  teacher: Teacher | any;
+  subjects: Observable<Subject[]> = this.subjectService.getSubjects();
 
-  constructor(private subjectService: SubjectService, private teacherService: TeacherService) { }
+  constructor(private subjectService: SubjectService) { }
 
-  ngOnInit(): void {
-    this.subjectService.getSubjects()
-      .subscribe(data => this.subjects = data.result);
-  }
+  ngOnInit(): void { }
 }
