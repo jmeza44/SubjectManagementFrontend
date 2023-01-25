@@ -1,8 +1,29 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let subject of subjects | async">
+  <mat-expansion-panel *ngFor="let subject of subjects | async as Subject"
+    (afterExpand)="onExpansionPanelExpand(subject)">
     <mat-expansion-panel-header>
       <mat-panel-title> {{ subject.name }} </mat-panel-title>
     </mat-expansion-panel-header>
-    <p>Teacher: {{subject.teacher.name}}</p>
+    <!-- Expansion panels content -->
+    <strong>Teacher</strong>
+    <p>{{subject.teacher.name}}</p>
+    <p>{{subject.teacher.phoneNumber}}</p>
+    <p>{{subject.teacher.email}}</p>
+    <hr>
+    <strong>Scheduled Classes</strong>
+    <div class="scheduledClasses-container">
+      <div class="scheduledClass-item" *ngFor="let scheduledClass of scheduledClasses">
+        <p>{{ scheduledClass.startTime | date:'EEEE, HH:mm' }} {{ scheduledClass.duration }}Hrs</p>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon aria-hidden="false" aria-label="Add circle icon" fontIcon="add_circle_outline"></mat-icon>
+      </mat-panel-title>
+      <mat-panel-description>Add a subject</mat-panel-description>
+    </mat-expansion-panel-header>
   </mat-expansion-panel>
 </mat-accordion>

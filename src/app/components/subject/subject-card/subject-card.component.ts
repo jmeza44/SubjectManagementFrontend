@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { ScheduledClass } from 'src/app/common/models/scheduledClass.model';
 import { Subject } from 'src/app/common/models/subject.model';
-import { Teacher } from 'src/app/common/models/teacher.model';
+import { ScheduledClassService } from 'src/app/common/services/scheduledClass.service';
 import { SubjectService } from 'src/app/common/services/subject.service';
-import { TeacherService } from 'src/app/common/services/teacher.service';
 
 @Component({
   selector: 'sm-subject-card',
@@ -13,8 +13,14 @@ import { TeacherService } from 'src/app/common/services/teacher.service';
 export class SubjectCardComponent implements OnInit {
 
   subjects: Observable<Subject[]> = this.subjectService.getSubjects();
+  scheduledClasses: ScheduledClass[] | undefined;
 
-  constructor(private subjectService: SubjectService) { }
+  constructor(private subjectService: SubjectService, private scheduledClassService: ScheduledClassService) { }
 
   ngOnInit(): void { }
+
+  onExpansionPanelExpand(expandedSubject: Subject): void {
+    this.scheduledClassService.getScheduledClassesOf(expandedSubject.id)
+      .subscribe(data => this.scheduledClasses = data)
+  }
 }
