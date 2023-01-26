@@ -1,9 +1,11 @@
-.scheduledClasses-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  .scheduledClass-item {
-    width: fit-content;
-  }
+.subject-card-content {
+  font-size: 12px;
+}
+
+.add-subject-icon {
+  margin-right: 6px;
+}
+
+.mat-mdc-list-item-icon {
+  color: rgba(0, 0, 0, 0.54);
 }

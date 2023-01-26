@@ -15,4 +15,9 @@ export class SubjectService {
     return this.httpClient.get<Subject[]>(`${this.baseUrl}/Subject` )
       .pipe(catchError(err => { throw err }));
   }
+
+  getSubjectsWithScheduledClasses(): Observable<Subject[]> {
+    return this.httpClient.get<Subject[]>(`${this.baseUrl}/SubjectWithScheduledClasses` )
+      .pipe(catchError(err => { throw err }));
+  }
 }

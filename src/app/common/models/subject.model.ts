@@ -1,3 +1,4 @@
+import { ScheduledClass } from "./scheduledClass.model"
 import { Semester } from "./semester.model"
 import { Teacher } from "./teacher.model"
 
@@ -7,5 +8,6 @@ export interface Subject {
   semesterId: number,
   semester: Semester,
   teacherId: number,
-  teacher: Teacher
+  teacher: Teacher,
+  scheduledClasses: ScheduledClass[]
 }

@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubjectCardComponent } from './subject-card/subject-card.component';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AddSubjectFormComponent } from './add-subject-form/add-subject-form.component'
 
 
 
 @NgModule({
   declarations: [
-    SubjectCardComponent
+    SubjectCardComponent,
+    AddSubjectFormComponent
   ],
   imports: [
     CommonModule,
-    MatExpansionModule,
-    MatIconModule
+    SharedModule
   ],
   exports: [
     SubjectCardComponent
