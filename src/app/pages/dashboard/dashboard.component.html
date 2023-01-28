@@ -1,0 +1,18 @@
+<mat-grid-list class="dashboard-container" cols="4" rowHeight="2:1">
+  <mat-grid-tile [colspan]="1" [rowspan]="4">
+    <div class="dashboard-element">
+      <div class="subject-card-container">
+        <sm-subject-card> </sm-subject-card>
+      </div>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [style.background]="tile.color"
+  >
+    {{ tile.text }}
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,41 @@
+<mat-accordion>
+  <ng-container *ngIf="subjects | async as Subject; else loadingBar">
+    <mat-expansion-panel class="subject-card" *ngFor="let subject of subjects | async as Subject">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ subject.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <!-- Expansion panels content -->
+      <mat-list class="subject-card-content">
+        <mat-list-item>
+          <mat-icon matListItemIcon>person</mat-icon>
+          <div matListItemTitle>{{subject.teacher.name}}</div>
+          <div matListItemLine>{{subject.teacher.phoneNumber}}</div>
+          <div matListItemLine>{{subject.teacher.email}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <ng-container *ngIf="subject.scheduledClasses.length > 0 else loadingBar">
+          <mat-list-item *ngFor="let scheduledClass of subject.scheduledClasses">
+            <mat-icon matListItemIcon>calendar_today</mat-icon>
+            <div matListItemTitle>{{scheduledClass.startTime | date:'EEEE, HH:mm'}}</div>
+            <div matListItemLine>{{scheduledClass.duration}} Hrs</div>
+            <div matListItemLine *ngIf="scheduledClass.classroom">{{scheduledClass.classroom.roomName}},
+              {{scheduledClass.classroom.building}}</div>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+    </mat-expansion-panel>
+  </ng-container>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon class="add-subject-icon" aria-hidden="false" aria-label="Add circle icon" fontIcon="add"></mat-icon>
+        <span>Add a subject</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <sm-add-subject-form></sm-add-subject-form>
+  </mat-expansion-panel>
+  <ng-template #loadingBar>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-template>
+</mat-accordion>
